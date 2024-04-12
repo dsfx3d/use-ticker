@@ -43,5 +43,8 @@
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
     "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0"
   }
 }
