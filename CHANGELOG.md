@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://github.com/dsfx3d/use-ticker/compare/v1.2.0...v1.3.0)
+
+### 🚀 Enhancements
+
+- Change the shape of `TTick` ([ea1d94e](https://github.com/dsfx3d/use-ticker/commit/ea1d94e))
+
+### ❤️ Contributors
+
+- Yashodhan Singh Rathore <dsfx3d@gmail.com>
+
 ## v1.2.0
 
 [compare changes](https://github.com/dsfx3d/use-ticker/compare/v1.1.0...v1.2.0)
