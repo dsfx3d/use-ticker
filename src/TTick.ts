@@ -1,3 +1,3 @@
 export type TTick = {
-  elapsedMs: number;
+  tickMs: number;
 };

@@ -1,16 +1,12 @@
 import {ITicker} from "./ITicker";
-import {Ticker} from "./Ticker";
-import {add} from "./add";
 import {bind} from "./bind";
-import {pipe} from "./pipe";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
+import {usePubSub} from "./usePubSub";
 
 export function useTicker(tickMs: number = 1000): ITicker {
-  const [elapsedMs, setElapsed] = useState(0);
-  const [ticker] = useState(new Ticker());
-  const nudgeElapsed = bind(pipe, tickMs, add, setElapsed);
-  const tick = bind(setTimeout, () => ticker.tick({elapsedMs}), tickMs);
-  useEffect(() => ticker.subscribe(nudgeElapsed), []);
-  useEffect(() => bind(clearInterval, tick()), [tick]);
-  return ticker;
+  const {publish, subscribe} = usePubSub();
+  const tick = bind(publish, {tickMs});
+  const startTicking = bind(setInterval, tick, tickMs);
+  useEffect(() => bind(clearInterval, startTicking()), [startTicking]);
+  return {subscribe};
 }

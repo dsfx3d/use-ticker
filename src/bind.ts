@@ -1,4 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function bind<A extends any[]>(fn: Function, ...args: A) {
+export function bind<F extends (...args: any[]) => any>(
+  fn: F,
+  ...args: Parameters<F>
+): () => ReturnType<F> {
   return fn.bind(undefined, ...args);
 }
