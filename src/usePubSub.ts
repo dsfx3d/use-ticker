@@ -1,7 +1,7 @@
 import {TTick} from "./TTick";
 import {TTickerSubscription} from "./TTickerSubscription";
 import {bind} from "./bind";
-import {useState} from "react";
+import {useMemo, useState} from "react";
 
 type TUsePubSub = {
   publish(tick: TTick): void;
@@ -10,7 +10,7 @@ type TUsePubSub = {
 
 export function usePubSub(): TUsePubSub {
   const [subscribers, setSubscribers] = useState<TTickerSubscription[]>([]);
-  return {
+  const pubsub: TUsePubSub = {
     publish(tick) {
       for (const onTick of subscribers) {
         onTick(tick);
@@ -23,4 +23,5 @@ export function usePubSub(): TUsePubSub {
       );
     },
   };
+  return useMemo(() => pubsub, [subscribers]);
 }
