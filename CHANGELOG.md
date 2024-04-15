@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.3.1
+
+[compare changes](https://github.com/dsfx3d/use-ticker/compare/v1.3.0...v1.3.1)
+
+### 🩹 Fixes
+
+- Unsubscribing not working ([0220512](https://github.com/dsfx3d/use-ticker/commit/0220512))
+
+### ❤️ Contributors
+
+- Yashodhan Singh Rathore <dsfx3d@gmail.com>
+
 ## v1.3.0
 
 [compare changes](https://github.com/dsfx3d/use-ticker/compare/v1.2.0...v1.3.0)
